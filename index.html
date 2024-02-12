@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   * {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #86078b, #b94566);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 600px; /* Added max-width for larger screens */
+    height: auto;
+    border: 2px solid red;
+    font-size: 2rem;
+    padding: 20px;
+    color: red;
+}
+
+.img_container img {
+    width: 100%; /* Make the image responsive */
+}
+
+.btns {
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 400px; /* Added max-width for larger screens */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center buttons on smaller screens */
+}
+
+button {
+    width: 100%;
+    max-width: 200px; /* Added max-width for larger screens */
+    margin-bottom: 10px; /* Spacing between buttons on smaller screens */
+    background: #e03636;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+}
+.btn-1{
+    background-color: red;
+}
+.btn-2{
+    background: white;
+    color: black;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .content {
+        width: 90%;
+        max-width: none;
+    }
+
+    .btns {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h4>would you like to be my valentine?</h4>
+            <div class="img_container">
+                <img id="imageElement" src='1.gif' alt="img">
+            </div>
+            <div class="message" id="msg"> </div>
+            <div class="btns">
+                <button class="btn-1" onclick=Accept()>Yes</button>
+                <button class="btn-2" onclick=Rejection()>No</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const msg = document.getElementById('msg')
+        let imageElement  = document.getElementById('imageElement')
+        let img = "1.gif"
+        let count = 5;
+        const Rejection = () =>{
+            if(count === 5){
+                msg.innerHTML = "I Promise it will be unforgetable.😁"
+               imageElement.src = "8.gif"
+                count--;
+            }else if(count === 4){
+                msg.innerHTML = "Think Again🙄"
+               imageElement.src = "3.png"
+                count--;
+
+            }else if(count === 3){
+                msg.innerHTML = "Come on, Dare to say yes😏"
+               imageElement.src = "4.gif"
+                count--;
+
+            }else if(count === 2){
+                msg.innerHTML = "Please.....☹"
+               imageElement.src = "6.gif"
+                count--;
+
+            }else if(count === 1){
+                msg.innerHTML = "I  Kill You 😤"
+               imageElement.src = "1.gif"
+                count--;
+
+            }
+
+           
+        }
+        const Accept = ()=>{
+            msg.innerHTML = "I Love You 😁 "
+               imageElement.src = "1.png"
+        }
+
+    </script>
+</body>
+
+</html>
