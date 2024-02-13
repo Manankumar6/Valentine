@@ -12,6 +12,7 @@
     box-sizing: border-box;
     padding: 0;
     overflow: hidden;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -37,7 +38,10 @@
     padding: 20px;
     color: red;
 }
-
+.message{
+    color: white;
+    font-weight: bold;
+}
 .img_container img {
     width: 100%; /* Make the image responsive */
 }
@@ -62,6 +66,7 @@ button {
     font-size: 20px;
     color: white;
 }
+
 .btn-1{
     background-color: red;
 }
@@ -74,7 +79,9 @@ button:hover {
     cursor: pointer;
     background-color: red;
 }
-
+#btn3{
+    display: none;
+}
 /* Media query for smaller screens */
 
 @media screen and (max-width: 600px) {
@@ -88,9 +95,10 @@ button:hover {
         max-width: none;
     }
     h4{
-       
         font-size: 5vw;
+ 
     }
+    
     .message{
         
         font-size: 5vw;
@@ -104,53 +112,67 @@ button:hover {
         <div class="content">
             <h4>would you like to be my valentine?</h4>
             <div class="img_container">
-                <img id="imageElement" src='main.gif' alt="img">
+                <img id="imageElement" src='images/main.gif' alt="img">
             </div>
             <div class="message" id="msg"> </div>
             <div class="btns">
                 <button class="btn-1" onclick=Accept()>Yes</button>
-                <button class="btn-2" onclick=Rejection()>No</button>
+                <button class="btn-2" id="btn" onclick=Rejection()>No</button>
+                <button class="btn-3" id="btn3" onclick="refreshWindow()">Go Back</button>
             </div>
         </div>
 
     </div>
     <script>
         const msg = document.getElementById('msg')
+        const btn = document.getElementById('btn')
         let imageElement  = document.getElementById('imageElement')
         let img = "1.gif"
-        let count = 5;
+        let count = 6;
         const Rejection = () =>{
-            if(count === 5){
+            if(count === 6){
                 msg.innerHTML = "I Promise it will be unforgetable.😁"
-               imageElement.src = "8.gif"
+               imageElement.src = "images/8.gif"
                 count--;
-            }else if(count === 4){
+            }else if(count === 5){
                 msg.innerHTML = "Think Again🙄"
-               imageElement.src = "3.png"
+               imageElement.src = "images/3.png"
+                count--;
+
+            }else if(count === 4){
+                msg.innerHTML = "Come on, Dare to say yes😏"
+               imageElement.src = "images/4.gif"
                 count--;
 
             }else if(count === 3){
-                msg.innerHTML = "Come on, Dare to say yes😏"
-               imageElement.src = "4.gif"
+                msg.innerHTML = "Please.....☹"
+               imageElement.src = "images/6.gif"
                 count--;
 
             }else if(count === 2){
-                msg.innerHTML = "Please.....☹"
-               imageElement.src = "6.gif"
-                count--;
-
-            }else if(count === 1){
                 msg.innerHTML = "I  Kill You 😤"
-               imageElement.src = "1.gif"
+               imageElement.src = "images/1.gif"
                 count--;
+              
 
+            }else if(count === 1 ){
+                msg.innerHTML = "No More Options Say 'YES' 😏"
+                imageElement.src = "images/9.gif"
+                btn.style.display = "none"
+                count--
             }
 
            
         }
+        function refreshWindow() {
+      // Reload the current page
+      window.location.reload();
+    }
         const Accept = ()=>{
-            msg.innerHTML = "I Love You 😁 "
-               imageElement.src = "1.png"
+            msg.innerHTML = "Hurry!!! I Love You DuDu 😁 "
+               imageElement.src = "images/1.png"
+               btn.style.display = "none"
+               btn3.style.display = "block"
         }
 
     </script>
